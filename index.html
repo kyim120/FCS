@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fusion College of Science</title>
+    <meta name="description" content="Fusion College of Science - Empowering the Scientists of Tomorrow" />
+    <meta name="author" content="Fusion College" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+      :root {
+        /* Dark theme values */
+        --background: 240 10% 3.9%;
+        --foreground: 0 0% 98%;
+        --card: 240 10% 3.9%;
+        --card-foreground: 0 0% 98%;
+        --popover: 240 10% 3.9%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 252 87% 67%;
+        --primary-foreground: 0 0% 98%;
+        --secondary: 240 3.7% 15.9%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 240 3.7% 15.9%;
+        --muted-foreground: 240 5% 64.9%;
+        --accent: 192 79% 67%;
+        --accent-foreground: 0 0% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 240 3.7% 15.9%;
+        --input: 240 3.7% 15.9%;
+        --ring: 240 4.9% 83.9%;
+        --radius: 0.75rem;
+      }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        border-color: hsl(var(--border));
+      }
+      
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      body {
+        background-color: hsl(var(--background));
+        color: hsl(var(--foreground));
+        font-family: 'Inter', sans-serif;
+        line-height: 1.5;
+        min-height: 100vh;
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+      }
+      
+      .container {
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+      
+      /* Navigation */
+      .navbar {
+        padding: 1rem 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        backdrop-filter: blur(10px);
+        background-color: hsla(240, 10%, 3.9%, 0.8);
+        border-bottom: 1px solid hsla(var(--border), 0.1);
+      }
+      
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .logo {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: hsl(var(--foreground));
+        text-decoration: none;
+      }
+      
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+      
+      .nav-links a {
+        color: hsl(var(--foreground));
+        text-decoration: none;
+        transition: color 0.2s;
+        position: relative;
+      }
+      
+      .nav-links a:hover {
+        color: hsl(var(--primary));
+      }
+      
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: hsl(var(--primary));
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+      
+      .nav-links a:hover::after {
+        transform: scaleX(1);
+      }
+      
+      /* Hero Section */
+      .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+      
+      .hero h1 {
+        font-size: 4rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fade-in 0.8s forwards 0.3s;
+      }
+      
+      .hero p {
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+        max-width: 600px;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fade-in 0.8s forwards 0.5s;
+      }
+      
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.75rem 1.5rem;
+        border-radius: var(--radius);
+        background-color: hsl(var(--primary));
+        color: hsl(var(--primary-foreground));
+        font-weight: 500;
+        text-decoration: none;
+        transition: background-color 0.2s;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fade-in 0.8s forwards 0.7s;
+      }
+      
+      .btn:hover {
+        background-color: hsl(var(--primary) / 0.9);
+      }
+      
+      /* Particle Background for Hero */
+      .particles-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+      
+      /* Programs Section */
+      .section {
+        padding: 6rem 0;
+      }
+      
+      .section-heading {
+        text-align: center;
+        margin-bottom: 4rem;
+        opacity: 0;
+      }
+      
+      .visible .section-heading {
+        animation: text-reveal 0.8s ease-out forwards;
+      }
+      
+      .programs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+      
+      .program-card {
+        border-radius: var(--radius);
+        overflow: hidden;
+        background-color: hsl(var(--card));
+        border: 1px solid hsl(var(--border));
+        transition: transform 0.3s, box-shadow 0.3s;
+        opacity: 0;
+      }
+      
+      .visible .program-card {
+        animation: fade-in 0.6s ease-out forwards;
+        animation-delay: calc(var(--index) * 0.1s);
+      }
+      
+      .program-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+      
+      .program-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      
+      .program-content {
+        padding: 1.5rem;
+      }
+      
+      /* About Section */
+      .about-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+      
+      .about-card {
+        border-radius: var(--radius);
+        padding: 2rem;
+        background-color: hsl(var(--card));
+        border: 1px solid hsl(var(--border));
+        opacity: 0;
+      }
+      
+      .visible .about-card {
+        animation: fade-in 0.6s ease-out forwards;
+        animation-delay: calc(var(--index) * 0.1s);
+      }
+      
+      /* Staff Section */
+      .staff-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+      
+      .staff-card {
+        border-radius: var(--radius);
+        overflow: hidden;
+        background-color: transparent;
+        backdrop-filter: blur(10px);
+        border: 1px solid hsla(var(--border), 0.5);
+        opacity: 0;
+      }
+      
+      .visible .staff-card {
+        animation: fade-in 0.6s ease-out forwards;
+        animation-delay: calc(var(--index) * 0.1s);
+      }
+      
+      .staff-image {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+      
+      .staff-card:hover .staff-image {
+        transform: scale(1.05);
+      }
+      
+      .staff-content {
+        padding: 1.5rem;
+      }
+      
+      /* CTA Section */
+      .cta-section {
+        padding: 6rem 0;
+        background: linear-gradient(to right, hsl(252, 87%, 20%), hsl(192, 79%, 20%));
+        text-align: center;
+      }
+      
+      .cta-content {
+        max-width: 600px;
+        margin: 0 auto;
+        opacity: 0;
+      }
+      
+      .visible .cta-content {
+        animation: fade-in 0.6s ease-out forwards;
+      }
+      
+      /* Footer */
+      .footer {
+        padding: 4rem 0;
+        background-color: hsl(var(--card));
+        border-top: 1px solid hsl(var(--border));
+      }
+      
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+      }
+      
+      .footer-col h4 {
+        margin-bottom: 1.5rem;
+        position: relative;
+        display: inline-block;
+      }
+      
+      .footer-col h4::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 30px;
+        height: 2px;
+        background-color: hsl(var(--primary));
+      }
+      
+      .footer-links {
+        list-style: none;
+      }
+      
+      .footer-links li {
+        margin-bottom: 0.75rem;
+      }
+      
+      .footer-links a {
+        color: hsl(var(--muted-foreground));
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      
+      .footer-links a:hover {
+        color: hsl(var(--foreground));
+      }
+      
+      .copyright {
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid hsl(var(--border));
+        text-align: center;
+        color: hsl(var(--muted-foreground));
+      }
+      
+      /* Animations */
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      @keyframes text-reveal {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .glass {
+        backdrop-filter: blur(10px);
+        background-color: hsla(var(--card), 0.5);
+        border: 1px solid hsla(var(--border), 0.3);
+        border-radius: var(--radius);
+      }
+      
+      .text-gradient {
+        background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 1rem;
+        }
+        
+        .hero h1 {
+          font-size: 3rem;
+        }
+        
+        .nav-links {
+          display: none;
+        }
+        
+        .mobile-menu-btn {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-container">
+        <a href="#" class="logo">Fusion College</a>
+        <nav class="nav-links">
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Programs</a>
+          <a href="#">Staff</a>
+          <a href="#">Admissions</a>
+          <a href="#">Contact</a>
+        </nav>
+      </div>
+    </header>
+    
+    <section class="hero">
+      <div class="particles-container" id="particles-js"></div>
+      <div class="container hero-content">
+        <h1>Empowering the <span class="text-gradient">Scientists</span> of Tomorrow</h1>
+        <p>Join Fusion College of Science and embark on a journey of discovery, innovation, and excellence in scientific education.</p>
+        <a href="#" class="btn">
+          Apply Now
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </section>
+    
+    <section id="programs" class="section">
+      <div class="container">
+        <h2 class="section-heading">Our Programs</h2>
+        <div class="programs-grid">
+          <!-- Program cards would go here -->
+          <div class="program-card" style="--index: 0;">
+            <img src="https://images.unsplash.com/photo-1532094349884-543019f6a73c" alt="Physics">
+            <div class="program-content">
+              <h3>B.Sc. Physics</h3>
+              <p>Explore the fundamental laws that govern the universe.</p>
+            </div>
+          </div>
+          
+          <div class="program-card" style="--index: 1;">
+            <img src="https://images.unsplash.com/photo-1532187643603-ba119ca4109e" alt="Chemistry">
+            <div class="program-content">
+              <h3>B.Sc. Chemistry</h3>
+              <p>Uncover the molecular foundations of our world.</p>
+            </div>
+          </div>
+          
+          <div class="program-card" style="--index: 2;">
+            <img src="https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe" alt="Biology">
+            <div class="program-content">
+              <h3>B.Sc. Biology</h3>
+              <p>Dive into the complexity of living organisms.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-heading">About Us</h2>
+        <div class="about-grid">
+          <div class="about-card" style="--index: 0;">
+            <h3>Our Vision</h3>
+            <p>To be a leading institution in scientific education and research, fostering innovation and critical thinking.</p>
+          </div>
+          
+          <div class="about-card" style="--index: 1;">
+            <h3>Our Mission</h3>
+            <p>Providing quality education in science disciplines through modern teaching methods and research opportunities.</p>
+          </div>
+          
+          <div class="about-card" style="--index: 2;">
+            <h3>Our Values</h3>
+            <p>Excellence, integrity, innovation, inclusivity, and sustainability guide our educational approach.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="staff" class="section">
+      <div class="container">
+        <h2 class="section-heading">Meet Our Staff</h2>
+        <div class="staff-grid">
+          <div class="staff-card glass" style="--index: 0;">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2" alt="Dr. Eleanor Hayes" class="staff-image">
+            <div class="staff-content">
+              <h3>Dr. Eleanor Hayes</h3>
+              <p>Principal / Physics Department</p>
+            </div>
+          </div>
+          
+          <div class="staff-card glass" style="--index: 1;">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a" alt="Dr. Marcus Chen" class="staff-image">
+            <div class="staff-content">
+              <h3>Dr. Marcus Chen</h3>
+              <p>Chemistry Department Head</p>
+            </div>
+          </div>
+          
+          <div class="staff-card glass" style="--index: 2;">
+            <img src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c" alt="Prof. Aisha Patel" class="staff-image">
+            <div class="staff-content">
+              <h3>Prof. Aisha Patel</h3>
+              <p>Biology Department</p>
+            </div>
+          </div>
+          
+          <div class="staff-card glass" style="--index: 3;">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e" alt="Dr. James Wilson" class="staff-image">
+            <div class="staff-content">
+              <h3>Dr. James Wilson</h3>
+              <p>Mathematics Department</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Ready to Begin Your Scientific Journey?</h2>
+          <p>Applications are now open for the upcoming academic year.</p>
+          <a href="#" class="btn">Apply for Admission</a>
+        </div>
+      </div>
+    </section>
+    
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h4>Fusion College</h4>
+            <p>Empowering the Scientists of Tomorrow through quality education and innovative research.</p>
+          </div>
+          
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Programs</a></li>
+              <li><a href="#">Staff</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <ul class="footer-links">
+              <li>123 College Road</li>
+              <li>Science City, SC 12345</li>
+              <li>contact@fusioncollege.edu</li>
+              <li>+1 (555) 123-4567</li>
+            </ul>
+          </div>
+          
+          <div class="footer-col">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <!-- Social media icons would go here -->
+            </div>
+          </div>
+        </div>
+        
+        <div class="copyright">
+          <p>&copy; 2025 Fusion College of Science. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+    
+    <!-- For particle animation -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+      // Initialize particle.js
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof particlesJS !== 'undefined') {
+          particlesJS('particles-js', {
+            particles: {
+              number: {
+                value: 80,
+                density: {
+                  enable: true,
+                  value_area: 800
+                }
+              },
+              color: {
+                value: "#ffffff"
+              },
+              shape: {
+                type: "circle",
+                stroke: {
+                  width: 0,
+                  color: "#000000"
+                }
+              },
+              opacity: {
+                value: 0.3,
+                random: false,
+                animation: {
+                  enable: true,
+                  speed: 1,
+                  opacity_min: 0.1,
+                  sync: false
+                }
+              },
+              size: {
+                value: 3,
+                random: true
+              },
+              line_linked: {
+                enable: true,
+                distance: 150,
+                color: "#6d6df2",
+                opacity: 0.2,
+                width: 1
+              },
+              move: {
+                enable: true,
+                speed: 1,
+                direction: "none",
+                random: false,
+                straight: false,
+                out_mode: "out",
+                bounce: false
+              }
+            },
+            interactivity: {
+              detect_on: "canvas",
+              events: {
+                onhover: {
+                  enable: true,
+                  mode: "grab"
+                },
+                onclick: {
+                  enable: true,
+                  mode: "push"
+                },
+                resize: true
+              }
+            }
+          });
+        }
+        
+        // Animation on scroll
+        const sections = document.querySelectorAll('.section');
+        
+        const observerCallback = (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        };
+        
+        const observerOptions = {
+          threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+        
+        sections.forEach(section => {
+          observer.observe(section);
+        });
+      });
+    </script>
+  </body>
+</html>
