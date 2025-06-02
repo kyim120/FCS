@@ -17,3 +17,6 @@ https://preview--cosmos-institute-suite.lovable.app/
 
 
 https://preview--dark-slide-portfolio.lovable.app/
+
+
+http://192.168.1.69:8080/
