@@ -14,3 +14,6 @@ https://preview--visme-ai-builder.lovable.app/
 
 
 https://preview--cosmos-institute-suite.lovable.app/
+
+
+https://preview--dark-slide-portfolio.lovable.app/
