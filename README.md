@@ -30,3 +30,7 @@ https://preview--future-tech-builders.lovable.app/
 https://preview--code-future-builders.lovable.app/
 
 https://preview--grade-gurus-online.lovable.app/
+
+
+
+http://192.168.1.104:8080
