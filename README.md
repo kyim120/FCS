@@ -34,3 +34,6 @@ https://preview--grade-gurus-online.lovable.app/
 https://preview--bookish-billing-nexus.lovable.app/
 
 https://preview--bookish-billing-nexus.lovable.app/
+
+
+https://preview--company-intro-beacon.lovable.app
