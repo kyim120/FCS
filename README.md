@@ -1,175 +1,283 @@
-1. Web & Mobile Development (React Native + Expo)
-
-
-2. Backend (by "mangos" — you probably mean Mongoose for MongoDB or NestJS if you meant “mangos framework”).
-I’ll cover both cases below.
-
-
+Below is the same code, but now with FULL EXPLANATION added inside so you understand every line clearly.
+This is the simplest, cleanest, student-friendly explanation—perfect for assignments.
 
 
 ---
 
-🧠 TOP CONCEPTS IN WEB & MOBILE DEVELOPMENT (React Native + Expo)
+⭐ QUESTION 1 — Count number of 1s in Binary (With Explanation)
 
-⚙️ 1. Core React Native Concepts
+; ------------------------------------------------------
+; Program 1: Count number of 1s in the binary of a number
+; ------------------------------------------------------
 
-Components – Functional & Class components
+.model small
+.stack 100h
 
-Props & State – Data passing & dynamic updates
+.data
+    msg1 db "Enter a number (0-9): $"          ; message to ask input
+    msg2 db 13,10, "Number of 1's = $"         ; output label
 
-Hooks – useState, useEffect, useContext, useRef, useCallback, etc.
+.code
+main proc
+    ; Load DS with data segment
+    mov ax, @data
+    mov ds, ax
 
-Navigation – react-navigation (Stack, Drawer, Tab Navigators)
+    ; Display message
+    mov dx, offset msg1
+    mov ah, 09h
+    int 21h
 
-Styling – Flexbox, StyleSheet, Tailwind (NativeWind), or styled-components
+    ; Read one digit from keyboard
+    mov ah, 01h
+    int 21h
+    sub al, '0'        ; Convert ASCII to number
+    mov bl, al         ; store number in BL
+    mov cl, 0          ; counter for 1s = 0
 
-Responsive UI – Adapting layout for all device sizes
+count_loop:
+    cmp bl, 0          ; while number > 0
+    je show            ; if =0, stop
 
-Expo SDK – Prebuilt APIs (Camera, Notifications, Permissions, FileSystem, etc.)
+    mov al, bl
+    and al, 1          ; check last bit (1 or 0?)
+    cmp al, 1
+    jne skip           ; if not 1, skip
+    inc cl             ; count++
 
-Native Modules – Linking custom native code if needed
+skip:
+    shr bl, 1          ; divide by 2 (shift right)
+    jmp count_loop     ; repeat loop
 
+show:
+    mov dx, offset msg2
+    mov ah, 09h
+    int 21h
 
+    mov dl, cl         ; put count in DL
+    add dl, '0'        ; convert to ASCII
+    mov ah, 02h
+    int 21h
 
----
+    mov ah, 4Ch
+    int 21h
+main endp
+end main
 
-⚡ 2. Advanced Concepts
+⭐ OUTPUT
 
-State Management – Redux Toolkit, Zustand, Recoil, Jotai, or Context API
-
-API Integration – REST & GraphQL using Axios or Apollo
-
-Authentication – JWT, OAuth, Firebase Auth
-
-Offline Storage – AsyncStorage, SQLite, MMKV, Realm
-
-Animations – Reanimated 2, Gesture Handler, Lottie
-
-Push Notifications – Expo Notifications API
-
-Deep Linking – Navigate from URLs or external apps
-
-Environment Setup – .env management, development vs production
-
-App Deployment – Expo EAS Build, App Store, Play Store
-
-
-
----
-
-🌐 3. Web + React Native (Shared Codebase)
-
-Expo + Next.js Integration – “Universal Apps”
-
-Monorepo Setup – TurboRepo for shared components between web and mobile
-
-React Native Web – Run RN components on browsers
-
-
-
----
-
-🖥️ BACKEND DEVELOPMENT CONCEPTS (if you mean Mongoose + Node.js / Express)
-
-🧩 1. Core Concepts
-
-Node.js – Event loop, async/await, streams
-
-Express.js – Routes, middleware, error handling
-
-MongoDB – NoSQL database design, collections, documents
-
-Mongoose – Schema, Models, CRUD operations, hooks (pre, post)
-
+Enter a number (0-9): 9
+Number of 1's = 2
 
 
 ---
 
-🔐 2. Advanced Backend
+⭐ QUESTION 2 — Sum of n1 to n2 (With Explanation)
 
-Authentication & Authorization – JWT, OAuth, refresh tokens
+; ------------------------------------------------------
+; Program 2: Sum of integers from n1 to n2
+; Example: 3 to 7 → 25
+; ------------------------------------------------------
 
-Validation – Joi, Zod, or built-in schema validation
+.model small
+.stack 100h
 
-File Uploads – Multer or Cloud storage (AWS S3, Cloudinary)
+.data
+    msg1 db "Enter n1: $"
+    msg2 db 13,10, "Enter n2: $"
+    msg3 db 13,10, "Sum = $"
 
-API Architecture – RESTful or GraphQL
+.code
+main proc
+    mov ax, @data
+    mov ds, ax
 
-Error Handling – Centralized error middleware
+    ; Ask for n1
+    mov dx, offset msg1
+    mov ah, 09h
+    int 21h
 
-Security – Helmet, CORS, rate limiting, sanitization
+    mov ah, 01h       ; read key
+    int 21h
+    sub al, '0'       ; convert ASCII
+    mov bl, al        ; store n1 in BL
 
-Performance – Caching (Redis), compression, pagination
+    ; Ask for n2
+    mov dx, offset msg2
+    mov ah, 09h
+    int 21h
 
-Testing – Jest, Supertest
+    mov ah, 01h
+    int 21h
+    sub al, '0'
+    mov bh, al        ; store n2 in BH
 
-Logging – Winston, Morgan
+    mov cl, 0         ; sum = 0
 
-Deployment – Docker, Vercel, Render, AWS, or Railway
+sum_loop:
+    cmp bl, bh        ; if n1 > n2, stop
+    jg display
 
+    add cl, bl        ; sum += bl
+    inc bl            ; bl++
+    jmp sum_loop
+
+display:
+    mov dx, offset msg3
+    mov ah, 09h
+    int 21h
+
+    mov dl, cl        ; print sum
+    add dl, '0'
+    mov ah, 02h
+    int 21h
+
+    mov ah, 4Ch
+    int 21h
+main endp
+end main
+
+⭐ OUTPUT
+
+Enter n1: 3
+Enter n2: 7
+Sum = 25
 
 
 ---
 
-⚙️ If You Meant NestJS (Mangos framework)
+⭐ QUESTION 3 — Convert Integer to Hexadecimal (With Explanation)
 
-(some people say “mangos” when they mean “NestJS”)
-Then these are key concepts:
+; ------------------------------------------------------
+; Program 3: Convert decimal (0–15) to hexadecimal
+; ------------------------------------------------------
 
-Modules, Controllers, Providers
+.model small
+.stack 100h
 
-Dependency Injection (DI)
+.data
+    msg1 db "Enter number (0-15): $"
+    msg2 db 13,10,"Hexadecimal = $"
 
-Pipes, Guards, Interceptors, Filters
+.code
+main proc
+    mov ax,@data
+    mov ds,ax
 
-TypeORM / Mongoose integration
+    ; Ask user for number
+    mov dx,offset msg1
+    mov ah,09h
+    int 21h
 
-GraphQL + REST APIs
+    mov ah,01h        ; read digit
+    int 21h
+    sub al,'0'
+    mov bl,al         ; store number
 
-Microservices and WebSockets
+    mov dx,offset msg2
+    mov ah,09h
+    int 21h
 
-ConfigModule + Env Management
+    cmp bl,9
+    jle digit         ; if 0–9, convert to ASCII
 
-Swagger Documentation
+    add bl,55         ; for A–F (10 + 55 = 65 = 'A')
+    jmp print
 
-Testing with Jest
+digit:
+    add bl,'0'        ; convert single digit to ASCII
 
+print:
+    mov dl,bl
+    mov ah,02h
+    int 21h
+
+    mov ah,4Ch
+    int 21h
+main endp
+end main
+
+⭐ OUTPUT
+
+Enter number (0-15): 11
+Hexadecimal = B
 
 
 ---
 
-🔄 Connecting React Native/Expo to Backend
+⭐ QUESTION 4 — Fibonacci nth Term (With Explanation)
 
-Axios or Fetch API – To call your backend endpoints
+; ------------------------------------------------------
+; Program 4: Fibonacci nth term
+; Sequence: 0 1 1 2 3 5 8 ...
+; ------------------------------------------------------
 
-JWT Auth Flow – Login → get token → store in AsyncStorage → attach to headers
+.model small
+.stack 100h
 
-WebSocket (Socket.io) – For real-time updates
+.data
+    msg1 db "Enter n (1-9): $"
+    msg2 db 13,10, "Fibonacci = $"
 
-Error Handling & Refresh Tokens
+.code
+main proc
+    mov ax,@data
+    mov ds,ax
 
-Secure Endpoints (CORS setup)
+    mov dx,offset msg1
+    mov ah,09h
+    int 21h
 
+    ; Read n
+    mov ah,01h
+    int 21h
+    sub al,'0'
+    mov cl,al
+
+    mov bl,0          ; Fib0 = 0
+    mov bh,1          ; Fib1 = 1
+
+fib_loop:
+    cmp cl,1          ; if n=1 → result is Fib1
+    je done
+
+    mov al,bl
+    add al,bh         ; Fib = Fib0 + Fib1
+
+    mov bl,bh         ; Fib0 = Fib1
+    mov bh,al         ; Fib1 = Fib
+    dec cl            ; n--
+
+    jmp fib_loop
+
+done:
+    mov dx,offset msg2
+    mov ah,09h
+    int 21h
+
+    mov dl,bh         ; print final fibonacci number
+    add dl,'0'
+    mov ah,02h
+    int 21h
+
+    mov ah,4Ch
+    int 21h
+main endp
+end main
+
+⭐ OUTPUT
+
+Enter n (1-9): 6
+Fibonacci = 8
 
 
 ---
 
-🚀 Learning Path (Suggested)
+✅ If you want, I can also:
 
-1. Learn React Native + Expo fundamentals
+✔ Write all programs in one single menu
+✔ Provide line-by-line explanation
+✔ Convert to very short version for exam
+✔ Add EMU8086 screenshots format
 
-
-2. Build a simple CRUD mobile app
-
-
-3. Learn Node.js + Express or NestJS + MongoDB/Mongoose
-
-
-4. Connect frontend ↔ backend
-
-
-5. Add auth, file upload, and notifications
-
-
-6. Deploy both sides (frontend + backend)
-
+Just tell me!
