@@ -2,17 +2,17 @@
 
 Make a group of 5–8 members only.
 
-Every member must participate in the task and appear clearly in all photos and videos.
+Every member must participate and appear clearly in all photos & videos.
 
 Work together during the seminar/training and support each other.
 
-Assign small roles (photography, report writing, question asking, etc.) to divide the work equally.
+Assign small roles (photography, report writing, asking questions, etc.).
 
-Submit one group ZIP file with all evidence and the report.
+Submit one ZIP file with all evidence + report.
 
-While emailing the task, mention all group members’ names, IDs, and departments, and add everyone in CC.
+While emailing the task, mention all group members’ names, IDs, departments, and add everyone in CC.
 
-Any member missing from the evidence or email details will not be marked.
+Any member missing from evidence or email → not marked.
 
 
 
@@ -20,192 +20,126 @@ Any member missing from the evidence or email details will not be marked.
 
 ✔ Points to Do in the Task (With Explanation)
 
-1. Understand the Purpose of the Task
+1. Understand the Purpose
 
-Point: Read the objective and understand why this seminar/NGO training is important.
-
-Explanation: The activity is designed to help students learn how businesses and NGOs work together for social good. It connects your learning with Sustainable Development Goals (SDGs) like quality education, reduced inequalities, sustainability, etc.
-
+Point: Read the objective and purpose of the seminar/NGO training.
+Explanation: It helps you connect with SDGs and understand how NGOs + businesses create social impact.
 
 
 ---
 
-2. Attend the Seminar or NGO Training Session
+2. Attend the Seminar / Training Session
 
-Point: Participate fully in the seminar conducted by an NGO representative or industry expert.
-
-Explanation: This is the core step where you gain firsthand knowledge about CSR (Corporate Social Responsibility), sustainability, ethical leadership, and social impact.
-
+Point: Participate fully in the session by the NGO/industry expert.
+Explanation: This is where you learn about CSR, sustainability, ethics, etc.
 
 
 ---
 
-3. Take Active Notes During the Session
+3. Take Active Notes
 
-Point: Write down important ideas, examples, and lessons shared by the speakers.
-
-Explanation: These notes help you remember key concepts and prepare your reflection later.
-
+Point: Write down key ideas and examples.
+Explanation: Helps in writing your reflection and report.
 
 
 ---
 
 4. Ask a Thoughtful Question
 
-Point: Participate in the Q&A session by asking at least one relevant question.
-
-Explanation: This shows engagement and helps you understand the speaker’s viewpoint more deeply. It also improves your communication skills.
-
+Point: Participate in Q&A.
+Explanation: Shows engagement and improves your understanding.
 
 
 ---
 
-5. Interact and Network With the NGO / Speaker
+5. Interact & Network with the Speaker
 
-Point: Talk to the speaker after the session to learn more about their organization and projects.
-
-Explanation: Networking allows you to explore internship options, volunteer work, or career guidance.
-
+Point: Talk to the speaker after the session.
+Explanation: Helps you explore internships, volunteering, and career insights.
 
 
 ---
 
 6. Identify Key Learnings (2–3 Takeaways)
 
-Point: Choose the most important lessons you learned.
-
-Explanation: These takeaways should relate to:
-
-How organizations balance profit + social purpose
-
-How NGOs partner with businesses
-
-How leadership affects sustainability and ethics.
-
-
+Point: Choose the most important lessons.
+Explanation: Focus on CSR, NGO–business partnerships, ethical leadership, sustainability.
 
 
 ---
 
-7. Suggest a CSR or Social Responsibility Idea
+7. Suggest a CSR / Social Responsibility Idea
 
-Point: Think of one idea to improve your university, community, or department.
-
-Explanation: The idea should reflect what you learned — for example:
-
-A campus recycling project
-
-Charity-based student club
-
-Mental health awareness campaign
-
-Digital safety sessions
-
-
+Point: Give one idea to improve university/community.
+Explanation: Example ideas: recycling project, mental health campaign, charity club, digital safety sessions.
 
 
 ---
 
 8. Write a Reflection Paragraph (100–150 Words)
 
-Point: Write a short paragraph describing:
-
-The seminar
-
-What you learned
-
-Your idea for social responsibility
-
-
-Explanation: This is a mandatory deliverable that connects your learning to real-life action.
-
+Point: Write about the seminar, learning, and your CSR idea.
+Explanation: Mandatory for submission.
 
 
 ---
 
 9. Capture Evidence (Photo/Video)
 
-Point: Take:
+1 group or session photo
 
-1 group photo or session photo
-
-5–6 minutes video (landscape, no filters, all members visible)
+5–6 minutes landscape video (all members visible)
 
 
-Explanation: These serve as proof of participation and will be submitted as evidence.
-
+Explanation: Required for proof of participation.
 
 
 ---
 
-10. Link Your Learnings to the SDGs
+10. Link Learnings to SDGs
 
-Point: Explain which Sustainable Development Goals your activity supports.
-
-Explanation: This shows your understanding of global issues and UN SDGs.
-Hint: This task touches all 17 SDGs, especially SDG 4, 10, 11, 12, 16, 17.
-
+Point: Show which SDGs the activity supports.
+Explanation: Especially SDG 4, 10, 11, 12, 16, 17.
 
 
 ---
 
 11. Compile Documentation / Report
 
-Point: Write the full process from start to end:
-
-Importance of the task
-
-Relevance to SDGs
-
-What happened in the seminar
-
-Photos/video
-
-Reflection
-
-
-Explanation: This written report is part of the final submission and will contribute to your marks.
-
+Point: Include purpose, SDGs relevance, seminar summary, photos, reflection.
+Explanation: This is part of your final submission.
 
 
 ---
 
-12. Create a ZIP File of All Evidence
+12. Create ZIP File
 
-Point: Combine your report, photos, videos into one zip folder.
-
-Explanation: A single folder keeps everything organized and easy to send.
-
+Point: Combine report + photos + videos into one folder.
+Explanation: Keeps everything organized.
 
 
 ---
 
-13. Submit to the Concerned Focal Person
+13. Submit to Focal Person
 
-Point: Email your file or Google Drive link to your department's assigned person.
-
-Explanation: Make sure to give access if using Google Drive, otherwise your task won’t be marked.
-
+Point: Email ZIP or Drive link to the assigned faculty/focal person.
+Explanation: Give access if using Google Drive.
 
 
 ---
 
-14. Include All Group Members in the Email
+14. Add All Group Members in Email
 
-Point: Mention names, IDs, and departments and keep all group members in CC.
-
-Explanation: Missing any details = task not marked.
-
+Point: Mention names, IDs, departments, and CC all members.
+Explanation: Missing info = not marked.
 
 
 ---
 
 15. Confirm Submission
 
-Point: Follow up to ensure the focal person has received and marked your task.
-
-Explanation: This avoids issues later regarding grading.
-
+Point: Follow up and confirm your task is received.
+Explanation: Prevents issues in grading.
 
 
 ---
