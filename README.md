@@ -1,283 +1,211 @@
-Below is the same code, but now with FULL EXPLANATION added inside so you understand every line clearly.
-This is the simplest, cleanest, student-friendly explanation—perfect for assignments.
+📌 Group Instructions (Short & Clear)
 
+Make a group of 5–8 members only.
 
----
+Every member must participate in the task and appear clearly in all photos and videos.
 
-⭐ QUESTION 1 — Count number of 1s in Binary (With Explanation)
+Work together during the seminar/training and support each other.
 
-; ------------------------------------------------------
-; Program 1: Count number of 1s in the binary of a number
-; ------------------------------------------------------
+Assign small roles (photography, report writing, question asking, etc.) to divide the work equally.
 
-.model small
-.stack 100h
+Submit one group ZIP file with all evidence and the report.
 
-.data
-    msg1 db "Enter a number (0-9): $"          ; message to ask input
-    msg2 db 13,10, "Number of 1's = $"         ; output label
+While emailing the task, mention all group members’ names, IDs, and departments, and add everyone in CC.
 
-.code
-main proc
-    ; Load DS with data segment
-    mov ax, @data
-    mov ds, ax
+Any member missing from the evidence or email details will not be marked.
 
-    ; Display message
-    mov dx, offset msg1
-    mov ah, 09h
-    int 21h
-
-    ; Read one digit from keyboard
-    mov ah, 01h
-    int 21h
-    sub al, '0'        ; Convert ASCII to number
-    mov bl, al         ; store number in BL
-    mov cl, 0          ; counter for 1s = 0
-
-count_loop:
-    cmp bl, 0          ; while number > 0
-    je show            ; if =0, stop
-
-    mov al, bl
-    and al, 1          ; check last bit (1 or 0?)
-    cmp al, 1
-    jne skip           ; if not 1, skip
-    inc cl             ; count++
-
-skip:
-    shr bl, 1          ; divide by 2 (shift right)
-    jmp count_loop     ; repeat loop
-
-show:
-    mov dx, offset msg2
-    mov ah, 09h
-    int 21h
-
-    mov dl, cl         ; put count in DL
-    add dl, '0'        ; convert to ASCII
-    mov ah, 02h
-    int 21h
-
-    mov ah, 4Ch
-    int 21h
-main endp
-end main
-
-⭐ OUTPUT
-
-Enter a number (0-9): 9
-Number of 1's = 2
 
 
 ---
 
-⭐ QUESTION 2 — Sum of n1 to n2 (With Explanation)
+✔ Points to Do in the Task (With Explanation)
 
-; ------------------------------------------------------
-; Program 2: Sum of integers from n1 to n2
-; Example: 3 to 7 → 25
-; ------------------------------------------------------
+1. Understand the Purpose of the Task
 
-.model small
-.stack 100h
+Point: Read the objective and understand why this seminar/NGO training is important.
 
-.data
-    msg1 db "Enter n1: $"
-    msg2 db 13,10, "Enter n2: $"
-    msg3 db 13,10, "Sum = $"
+Explanation: The activity is designed to help students learn how businesses and NGOs work together for social good. It connects your learning with Sustainable Development Goals (SDGs) like quality education, reduced inequalities, sustainability, etc.
 
-.code
-main proc
-    mov ax, @data
-    mov ds, ax
-
-    ; Ask for n1
-    mov dx, offset msg1
-    mov ah, 09h
-    int 21h
-
-    mov ah, 01h       ; read key
-    int 21h
-    sub al, '0'       ; convert ASCII
-    mov bl, al        ; store n1 in BL
-
-    ; Ask for n2
-    mov dx, offset msg2
-    mov ah, 09h
-    int 21h
-
-    mov ah, 01h
-    int 21h
-    sub al, '0'
-    mov bh, al        ; store n2 in BH
-
-    mov cl, 0         ; sum = 0
-
-sum_loop:
-    cmp bl, bh        ; if n1 > n2, stop
-    jg display
-
-    add cl, bl        ; sum += bl
-    inc bl            ; bl++
-    jmp sum_loop
-
-display:
-    mov dx, offset msg3
-    mov ah, 09h
-    int 21h
-
-    mov dl, cl        ; print sum
-    add dl, '0'
-    mov ah, 02h
-    int 21h
-
-    mov ah, 4Ch
-    int 21h
-main endp
-end main
-
-⭐ OUTPUT
-
-Enter n1: 3
-Enter n2: 7
-Sum = 25
 
 
 ---
 
-⭐ QUESTION 3 — Convert Integer to Hexadecimal (With Explanation)
+2. Attend the Seminar or NGO Training Session
 
-; ------------------------------------------------------
-; Program 3: Convert decimal (0–15) to hexadecimal
-; ------------------------------------------------------
+Point: Participate fully in the seminar conducted by an NGO representative or industry expert.
 
-.model small
-.stack 100h
+Explanation: This is the core step where you gain firsthand knowledge about CSR (Corporate Social Responsibility), sustainability, ethical leadership, and social impact.
 
-.data
-    msg1 db "Enter number (0-15): $"
-    msg2 db 13,10,"Hexadecimal = $"
-
-.code
-main proc
-    mov ax,@data
-    mov ds,ax
-
-    ; Ask user for number
-    mov dx,offset msg1
-    mov ah,09h
-    int 21h
-
-    mov ah,01h        ; read digit
-    int 21h
-    sub al,'0'
-    mov bl,al         ; store number
-
-    mov dx,offset msg2
-    mov ah,09h
-    int 21h
-
-    cmp bl,9
-    jle digit         ; if 0–9, convert to ASCII
-
-    add bl,55         ; for A–F (10 + 55 = 65 = 'A')
-    jmp print
-
-digit:
-    add bl,'0'        ; convert single digit to ASCII
-
-print:
-    mov dl,bl
-    mov ah,02h
-    int 21h
-
-    mov ah,4Ch
-    int 21h
-main endp
-end main
-
-⭐ OUTPUT
-
-Enter number (0-15): 11
-Hexadecimal = B
 
 
 ---
 
-⭐ QUESTION 4 — Fibonacci nth Term (With Explanation)
+3. Take Active Notes During the Session
 
-; ------------------------------------------------------
-; Program 4: Fibonacci nth term
-; Sequence: 0 1 1 2 3 5 8 ...
-; ------------------------------------------------------
+Point: Write down important ideas, examples, and lessons shared by the speakers.
 
-.model small
-.stack 100h
+Explanation: These notes help you remember key concepts and prepare your reflection later.
 
-.data
-    msg1 db "Enter n (1-9): $"
-    msg2 db 13,10, "Fibonacci = $"
-
-.code
-main proc
-    mov ax,@data
-    mov ds,ax
-
-    mov dx,offset msg1
-    mov ah,09h
-    int 21h
-
-    ; Read n
-    mov ah,01h
-    int 21h
-    sub al,'0'
-    mov cl,al
-
-    mov bl,0          ; Fib0 = 0
-    mov bh,1          ; Fib1 = 1
-
-fib_loop:
-    cmp cl,1          ; if n=1 → result is Fib1
-    je done
-
-    mov al,bl
-    add al,bh         ; Fib = Fib0 + Fib1
-
-    mov bl,bh         ; Fib0 = Fib1
-    mov bh,al         ; Fib1 = Fib
-    dec cl            ; n--
-
-    jmp fib_loop
-
-done:
-    mov dx,offset msg2
-    mov ah,09h
-    int 21h
-
-    mov dl,bh         ; print final fibonacci number
-    add dl,'0'
-    mov ah,02h
-    int 21h
-
-    mov ah,4Ch
-    int 21h
-main endp
-end main
-
-⭐ OUTPUT
-
-Enter n (1-9): 6
-Fibonacci = 8
 
 
 ---
 
-✅ If you want, I can also:
+4. Ask a Thoughtful Question
 
-✔ Write all programs in one single menu
-✔ Provide line-by-line explanation
-✔ Convert to very short version for exam
-✔ Add EMU8086 screenshots format
+Point: Participate in the Q&A session by asking at least one relevant question.
 
-Just tell me!
+Explanation: This shows engagement and helps you understand the speaker’s viewpoint more deeply. It also improves your communication skills.
+
+
+
+---
+
+5. Interact and Network With the NGO / Speaker
+
+Point: Talk to the speaker after the session to learn more about their organization and projects.
+
+Explanation: Networking allows you to explore internship options, volunteer work, or career guidance.
+
+
+
+---
+
+6. Identify Key Learnings (2–3 Takeaways)
+
+Point: Choose the most important lessons you learned.
+
+Explanation: These takeaways should relate to:
+
+How organizations balance profit + social purpose
+
+How NGOs partner with businesses
+
+How leadership affects sustainability and ethics.
+
+
+
+
+---
+
+7. Suggest a CSR or Social Responsibility Idea
+
+Point: Think of one idea to improve your university, community, or department.
+
+Explanation: The idea should reflect what you learned — for example:
+
+A campus recycling project
+
+Charity-based student club
+
+Mental health awareness campaign
+
+Digital safety sessions
+
+
+
+
+---
+
+8. Write a Reflection Paragraph (100–150 Words)
+
+Point: Write a short paragraph describing:
+
+The seminar
+
+What you learned
+
+Your idea for social responsibility
+
+
+Explanation: This is a mandatory deliverable that connects your learning to real-life action.
+
+
+
+---
+
+9. Capture Evidence (Photo/Video)
+
+Point: Take:
+
+1 group photo or session photo
+
+5–6 minutes video (landscape, no filters, all members visible)
+
+
+Explanation: These serve as proof of participation and will be submitted as evidence.
+
+
+
+---
+
+10. Link Your Learnings to the SDGs
+
+Point: Explain which Sustainable Development Goals your activity supports.
+
+Explanation: This shows your understanding of global issues and UN SDGs.
+Hint: This task touches all 17 SDGs, especially SDG 4, 10, 11, 12, 16, 17.
+
+
+
+---
+
+11. Compile Documentation / Report
+
+Point: Write the full process from start to end:
+
+Importance of the task
+
+Relevance to SDGs
+
+What happened in the seminar
+
+Photos/video
+
+Reflection
+
+
+Explanation: This written report is part of the final submission and will contribute to your marks.
+
+
+
+---
+
+12. Create a ZIP File of All Evidence
+
+Point: Combine your report, photos, videos into one zip folder.
+
+Explanation: A single folder keeps everything organized and easy to send.
+
+
+
+---
+
+13. Submit to the Concerned Focal Person
+
+Point: Email your file or Google Drive link to your department's assigned person.
+
+Explanation: Make sure to give access if using Google Drive, otherwise your task won’t be marked.
+
+
+
+---
+
+14. Include All Group Members in the Email
+
+Point: Mention names, IDs, and departments and keep all group members in CC.
+
+Explanation: Missing any details = task not marked.
+
+
+
+---
+
+15. Confirm Submission
+
+Point: Follow up to ensure the focal person has received and marked your task.
+
+Explanation: This avoids issues later regarding grading.
+
+
+
+---
