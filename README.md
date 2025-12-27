@@ -1,88 +1,158 @@
-# Implementation of Queue Using Stack
+## 1. Waterfall Model
 
-A **queue** is a linear data structure that follows the **First In First Out (FIFO)** principle, where the element inserted first is removed first.  
-A **stack**, in contrast, follows the **Last In First Out (LIFO)** principle.
+### Explanation
 
-Even though both structures work differently, a queue can be implemented using stacks by using the **reversing nature of stacks**.
+The Waterfall Model follows a **linear and sequential approach** to software development. Each phase must be fully completed before moving to the next phase, just like water flowing down a waterfall. Once a phase is finished, going back is very difficult.
 
----
+### Main Features
 
-## Concept
+* Clearly defined stages
+* Strict sequence of phases
+* Heavy documentation
+* No overlapping of phases
 
-The most common method of implementing a queue using stacks is by using **two stacks**:
+### Advantages
 
-- **Stack S1** → used for **enqueue (insertion)**
-- **Stack S2** → used for **dequeue (removal)**
+* Easy to understand and manage
+* Clear milestones and deliverables
+* Works well when requirements are fixed and known in advance
 
-### Key Idea
-When elements are moved from one stack to another, their order gets **reversed**.  
-This reversal helps in achieving **FIFO behavior** using **LIFO stacks**.
+### Disadvantages
 
----
-
-## Working Mechanism
-
-### Enqueue Operation
-- The new element is pushed directly into **Stack S1**
-- This operation is simple and takes **O(1)** time
-
-### Dequeue Operation
-- If **Stack S2** is not empty, pop the top element from **S2**
-- If **Stack S2** is empty:
-  - Move all elements from **S1** to **S2**
-  - Then pop the top element from **S2**
-- This ensures that the **oldest inserted element** is removed first
+* Very difficult to handle changes
+* Errors found late are costly to fix
+* Not suitable for long-term or complex projects
 
 ---
 
-## Algorithms
+## 2. V-Model (Verification and Validation)
 
-### Enqueue Algorithm
-```text
-Push element into Stack S1
+### Explanation
 
-Dequeue Algorithm
+The V-Model is an improved version of the Waterfall Model where **testing is planned alongside development**. Each development stage has a corresponding testing stage, ensuring verification and validation happen early.
 
-If S2 is not empty:
-    Pop from S2
-Else if both stacks are empty:
-    Queue underflow
-Else:
-    Move all elements from S1 to S2
-    Pop from S2
+### Main Features
 
+* Testing activities are defined early
+* Parallel development and testing phases
+* Strong emphasis on quality
 
----
+### Advantages
 
-Example
+* Early detection of defects
+* Better quality assurance
+* Suitable for safety-critical systems
 
-If elements 10, 20, 30 are enqueued:
+### Disadvantages
 
-Stack S1 stores: 10, 20, 30
-
-During dequeue, elements are transferred to S2 as: 30, 20, 10
-
-The element 10 is removed first, which confirms FIFO behavior
-
-
+* Very rigid like Waterfall
+* Changes are expensive
+* Requires clear and stable requirements
 
 ---
 
-Time and Space Complexity
+## 3. Agile Model
 
-Enqueue: O(1)
+### Explanation
 
-Dequeue: O(n) in the worst case, O(1) amortized
+Agile is a **flexible and iterative approach** where software is developed in small parts. Feedback from customers is taken regularly, and changes are welcomed even late in development.
 
-Space Complexity: O(n)
+### Main Features
 
+* Iterative development cycles
+* Continuous customer involvement
+* Minimal documentation
+* Working software delivered frequently
 
+### Advantages
+
+* Quickly adapts to changing requirements
+* Early delivery of useful software
+* Strong collaboration between team and customer
+
+### Disadvantages
+
+* Less emphasis on documentation
+* Hard to predict final cost and timeline
+* Requires experienced and self-organized teams
 
 ---
 
-Conclusion
+## 4. Scrum Framework
 
-Implementing a queue using stacks is a classic example of data structure transformation.
-By using two stacks and reversing the element order, FIFO behavior is successfully achieved using LIFO structures.
+### Explanation
 
-This approach demonstrates strong conceptual understanding and logical problem-solving skills.
+Scrum is an **Agile framework** used to manage development work. It divides work into small time-boxed iterations called **sprints**, usually lasting 2–4 weeks.
+
+### Main Features
+
+* Defined roles (Product Owner, Scrum Master, Team)
+* Daily stand-up meetings
+* Sprint planning, review, and retrospective
+* Prioritized backlog
+
+### Advantages
+
+* Fast development and delivery
+* Continuous improvement
+* High visibility of progress
+
+### Disadvantages
+
+* Depends heavily on team discipline
+* Not suitable for very large or distributed teams
+* Poor results if Scrum roles are not followed correctly
+
+---
+
+## 5. Spiral Model
+
+### Explanation
+
+The Spiral Model combines **iterative development** with **risk management**. The project progresses through loops (spirals), and risks are identified and handled in each loop before moving forward.
+
+### Main Features
+
+* Risk analysis in every cycle
+* Prototyping used to reduce uncertainty
+* Iterative and incremental development
+
+### Advantages
+
+* Ideal for large and complex projects
+* Reduces project failure risk
+* Allows early user feedback
+
+### Disadvantages
+
+* Complex and expensive
+* Requires risk assessment expertise
+* Not suitable for small projects
+
+---
+
+## 6. Extreme Programming (XP)
+
+### Explanation
+
+Extreme Programming is an Agile method focused on **high-quality code** and **continuous testing**. It encourages close communication between developers and customers.
+
+### Main Features
+
+* Pair programming
+* Test-Driven Development (TDD)
+* Continuous integration
+* Small, frequent releases
+
+### Advantages
+
+* Produces high-quality software
+* Fast response to changes
+* Reduced defects
+
+### Disadvantages
+
+* Needs constant customer involvement
+* Not suitable for large teams
+* Requires disciplined developers
+
